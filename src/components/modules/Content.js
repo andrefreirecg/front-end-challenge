@@ -21,7 +21,6 @@ export default class Content extends Component {
         var {url} = this.state;
         var {page} = this.state;
         var {totalPage} = this.state;
-        // var {totalPost} = this.state;
         return(
         <div id="content">
             <div className="container">
@@ -29,15 +28,13 @@ export default class Content extends Component {
                     {posts.map(post=>(
                         <Cards key={'card-geral'+post.id} post={post}  />
                     ))}
-                    <div className="col d-flex justify-content-center align-items-center">
-                        <button type="button" className="btn btn-outline-primary m-4" onClick={async () => {
+                        <button id="load-posts" type="button" className="col btn d-flex justify-content-center align-items-center m-4" onClick={async () => {
                             let responseTwo = await GetPosts(url + '&page=' + page)
                             if (page <= totalPage) {
                                 this.setState({page: page + 1})
                             }
                             this.setState({posts: posts.concat(responseTwo.data)}) 
-                        } } >Carregar próximos posts</button>
-                    </div>
+                        } } ><i className="fas fa-search-plus mx-3"></i>Carregar próximos posts</button>
                 </div>
             </div>
         </div>

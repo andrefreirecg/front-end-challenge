@@ -16,8 +16,8 @@ export default class Post extends Component {
         return(
         <div>
             <Header />
-            <div id="content-post">
-                <div className="container">
+            <div className="container">
+                <div id="content-post">
                     <div className="row">
                             {post.map(pt=>(
                         <div key={'container-'+pt.id} className="container">
